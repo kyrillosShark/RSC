@@ -1,0 +1,38 @@
+JMP start
+var1: 1B
+var2: 2C
+var3: 4F
+sum: 00
+temp: 00
+divisor: 03
+quotient: 00
+average: 00
+start:    
+    LDAC var1
+    MVAC
+    LDAC var2
+    ADD
+    MVAC
+    LDAC var3
+    ADD
+    STAC sum
+    STAC temp
+ 
+div_loop:   
+    LDAC divisor  ;
+    MVAC
+    LDAC temp
+    SUB    
+    STAC temp    
+    JMPZ end_div  
+    LDAC quotient
+    INC          
+    STAC quotient  
+    JMP div_loop      
+end_div:
+    LDAC quotient
+    STAC average  
+    LDAC average  
+    INC
+    OUT
+    HALT

@@ -1,0 +1,17 @@
+    JMP start
+
+    val: B78
+    val2: 8AB
+
+    start:	
+   	CLAC        ; Clear the accumulator (sets ACC to 0)
+    	LDAC val ; Load the value at memory address 0x0010 (assumed to be F) into the ACC
+   	MVAC        ; Move the value from ACC to R (stores F in R)
+    	LDAC val2 ; Load the value at memory address 0x0011 (assumed to be A) into the ACC
+   	SUB         ; Subtract R (which now contains F) from ACC (which now contains A)
+   	OUT         ; Output the result from ACC to OUTR (display result)
+    end:
+	 HALT
+   
+
+  
